@@ -1,46 +1,52 @@
-<div ng-controller=CourseController>
-    <div id="fh5co-portfolio">
-			<div class="fh5co-portfolio-item ">
-				<div class="fh5co-portfolio-figure" ng-style="work1"></div>
-				<div class="fh5co-portfolio-description">
-					<h2>Mean Stack Reference</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-					<p><a href="#" class="btn btn-primary">Read the casetudy</a></p>
-				</div>
-			</div>
-			<div class="fh5co-portfolio-item fh5co-img-right">
-				<div class="fh5co-portfolio-figure" ng-style="work2"></div>
-				<div class="fh5co-portfolio-description">
-					<h2>Project Second</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-					<p><a href="#" class="btn btn-primary">Read the casetudy</a></p>
-				</div>
-			</div>
-			<div class="fh5co-portfolio-item ">
-				<div class="fh5co-portfolio-figure" ng-style="work3"></div>
-				<div class="fh5co-portfolio-description">
-					<h2>Project Third</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-					<p><a href="#" class="btn btn-primary">Read the casetudy</a></p>
-				</div>
-			</div>
-			<div class="fh5co-portfolio-item fh5co-img-right">
-				<div class="fh5co-portfolio-figure" ng-style="work4"></div>
-				<div class="fh5co-portfolio-description">
-					<h2>Project Fourth</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-					<p><a href="#" class="btn btn-primary">Read the casetudy</a></p>
-				</div>
-			</div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<!--
-<section ng-controller=CourseController>
-  <input type=text id=text1 ng-model=name>
-  <input type=text id=text2 ng-model=name>
-  <% if ( user ) { %>
-          <ul>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    <%= title %>
+  </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Bootstrap social media icons -->
+  <link href="lib/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#!/">
+          <%= title %>
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
+        <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if ( user ) { %>
               <li><a href="#!/chapter-01">Chapter 1: Introduction to MEAN - Mastering MEAN</a></li>
               <li><a href="#!/chapter-02">Chapter 2: Introduction to MEAN - Installing MongoDB - Mastering MEAN</a></li>
               <li><a href="#!/chapter-03">Chapter 3: Introduction to MEAN - Installing Node.js - Mastering MEAN</a></li>
@@ -69,7 +75,44 @@
               <li><a href="#!/chapter-26">Chapter 26: Testing MEAN Applications - Mocha - Mastering MEAN</a></li>
               <li><a href="#!/chapter-27">Chapter 27: Testing MEAN Applications - Jasmine and Karma - Mastering MEAN</a></li>
               <li><a href="#!/chapter-28">Chapter 28: Automating and Debugging MEAN Applications - Mastering MEAN</a></li>
-              </ul>
-              <% } %>
-</section>
--->
+              <li role="separator" class="divider"></li>
+              <li><a href="/signout">Sign out</a></li>
+              <% } else { %>
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/signin">Signin</a></li>
+                <% } %>
+          </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="starter-template">
+      <p class="lead">
+        <section ng-view></section>
+      </p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    window.user = <%- user || 'null' %>;
+  </script>
+
+  <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="/lib/angular/angular.js"></script>
+  <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+
+  <script type="text/javascript" src="/js/modules/course.client.module.js"></script>
+  <script type="text/javascript" src="/js/controllers/course.client.controller.js"></script>
+  <script type="text/javascript" src="/js/config/course.client.routes.js"></script>
+
+  <script type="text/javascript" src="/js/modules/users.client.module.js"></script>
+  <script type="text/javascript" src="/js/services/authentication.client.service.js"></script>
+  <script type="text/javascript" src="/js/services/title.client.service.js"></script>
+
+  <script type="text/javascript" src="/js/application.js"></script>
+</body>
+</html>
