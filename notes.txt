@@ -17,3 +17,6 @@ curl -X DELETE localhost:3000/users/[id]
 
 Windows (Delete):
 curl -X DELETE localhost:3000/users/56179d620cea762c1e510903
+
+Heroku Deployment
+-Include bower folder (public/lib).
