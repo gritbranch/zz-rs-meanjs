@@ -1,8 +1,9 @@
 //mongodb://localhost/mean-book
-//mongodb://ryansalvador:xxxPA50@ds059692.mongolab.com:59692/ryansalvadordb
+//mongodb://ryansalvador:xxxPA50@ds147975.mlab.com:47975/ryansalvador-dev
+//mongodb://ryansalvador:xxxPA50@ds139985.mlab.com:39985/ryansalvador-prod
 
 module.exports = {
-  db: 'mongodb://ryansalvador:xxxPA50@ds059692.mongolab.com:59692/ryansalvadordb',
+  db: 'mongodb://ryansalvador:xxxPA50@ds147975.mlab.com:47975/ryansalvador-dev',
   sessionSecret: 'developmentSessionSecret',
   facebook: {
     clientID: '1061065367261191',
