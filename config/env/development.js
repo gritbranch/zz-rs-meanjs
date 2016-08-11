@@ -1,6 +1,5 @@
 //mongodb://localhost/mean-book
 //mongodb://ryansalvador:xxxPA50@ds059692.mongolab.com:59692/ryansalvadordb
-//mongodb://heroku_bh9fmwhd:rd41467ar43onk3u4dhh8ql7hv@ds027295.mongolab.com:27295/heroku_bh9fmwhd
 
 module.exports = {
   db: 'mongodb://ryansalvador:xxxPA50@ds059692.mongolab.com:59692/ryansalvadordb',
