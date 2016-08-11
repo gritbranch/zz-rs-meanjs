@@ -48,4 +48,3 @@ node_modules/
 npm-debug.log
 .vscode/
 .settings/
-public/lib/
