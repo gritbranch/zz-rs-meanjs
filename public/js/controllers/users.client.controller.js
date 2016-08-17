@@ -48,8 +48,8 @@ angular.module('users').controller('UserController', ['$scope', '$routeParams', 
         console.log("scope from delete " + $scope.user);
         console.log("location from delete " + $location.path('users'));
         $scope.user.$remove(function () {
-          console.log("from inside remove ");
-          //$location.path('users');
+          console.log("from inside remove " + $scope.user);
+          $location.path('users/');
         });
       }
     };

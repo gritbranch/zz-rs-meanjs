@@ -155,7 +155,7 @@ exports.update = function(req, res) {
     }
   });
 };
-/*
+
 exports.delete = function(req, res) {
   var user = req.user;
 
@@ -168,18 +168,6 @@ exports.delete = function(req, res) {
       res.json(user);
     }
   });
-};
-*/
-exports.delete = function (req, res) {
-	req.user.remove(function (err) {
-		if (err) {
-      return res.status(400).send({
-        message: getErrorMessage(err)
-      });
-		} else {
-			res.json(req.user);
-		}
-	})
 };
 
 //not yet implemented
