@@ -95,10 +95,10 @@
                   </div>
                </div>
                
+               <% if ( user ) { %>
 			   <div ng-view>
                </div>
-               
-			   <% if ( !user ) { %>
+               <% } else { %>
 			   <div id="fh5co-portfolio">
                   <div class="fh5co-portfolio-item ">
                      <div class="fh5co-portfolio-figure animate-box" style="background-image: url(img/work_1.jpg);"></div>
