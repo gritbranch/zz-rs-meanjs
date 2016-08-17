@@ -16,3 +16,13 @@ angular.module('users').factory('NameFactory', [
     return NameFactory;
   }
 ]);
+
+angular.module('users').factory('Users', ['$resource', function($resource) {
+  return $resource('api/users/:userId', {
+    articleId: '@_id'
+  }, {
+    update: {
+      method: 'PUT'
+    }
+  });
+}]);

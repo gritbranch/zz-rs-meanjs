@@ -46,4 +46,15 @@ module.exports = function(app) {
   }));
 
   app.get('/signout', users.signout);
+
+  app.route('/api/users')
+     .get(users.list)
+     //.post(users.create); //add create users???
+
+  app.route('/api/users/:userId')
+      .get(users.read)
+      .put(users.update)
+      .delete(users.delete);
+
+  app.param('userId', users.userByID);
 };

@@ -4,11 +4,14 @@ angular.module('users').config(['$routeProvider',
     when('/', {
       templateUrl: 'js/views/users.client.view.html'
     }).
-    when('/view', {
-      templateUrl: 'js/views/users-search.client.view.html'
+    when('/users', {
+      templateUrl: 'js/views/users-list.client.view.html'
     }).
-    when('/edit', {
-      templateUrl: 'js/views/users-edit.client.view.html'
+    when('/users/:userId', {
+      templateUrl: 'js/views/user-view.client.view.html'
+    }).
+    when('/users/:userId/edit', {
+      templateUrl: 'js/views/user-edit.client.view.html'
     }).
     otherwise({
       redirectTo: '/'

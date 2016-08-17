@@ -105,3 +105,90 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
     }
   });
 };
+
+//List Users
+exports.list = function(req, res) {
+  User.find().exec(function(err, users) {
+    if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
+    } else {
+      res.json(users);
+    }
+  });
+};
+
+//Find User by ID Middleware
+exports.userByID = function(req, res, next, id) {
+    User.findById(id).exec(function(err, user) {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return next(new Error('Failed to load user ' + id));
+      }
+
+      req.user = user;
+      next();
+    });
+};
+
+//Find User by ID (uses userByID)
+exports.read = function(req, res) {
+  res.json(req.user);
+};
+
+//Update User (uses userByID)
+exports.update = function(req, res) {
+  var user = req.user;
+
+  user.firstName = req.body.firstName;
+
+  user.save(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
+    } else {
+      res.json(user)
+    }
+  });
+};
+/*
+exports.delete = function(req, res) {
+  var user = req.user;
+
+  user.remove(function(err) {
+    if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
+    } else {
+      res.json(user);
+    }
+  });
+};
+*/
+exports.delete = function (req, res) {
+	req.user.remove(function (err) {
+		if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
+		} else {
+			res.json(req.user);
+		}
+	})
+};
+
+//not yet implemented
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not logged in'
+    });
+  }
+
+  next();
+};
