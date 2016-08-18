@@ -9,9 +9,7 @@
                      <p class="">This is where we view/edit/delete user accounts. Click <a ng-href="/#!/">here</a> to go back to the main page.</p> 
                   </div>
                   <div class="col-md-9">
-                     <h3>{{routeTitle_view}}</h3>
-
-
+                    <h3>{{routeTitle_view}}</h3>
                     <table class="table">
                     <tr>
                         <th>Last Name</th> 
@@ -30,9 +28,11 @@
                      <td ng-bind="user.created"></td>
                     </tr>
                     </table>
-                     <a ng-href="/#!/users/{{user._id}}/edit" class="btn btn-success">Edit</a>
-                     <a href="/#!/users/" class="btn btn-warning">Back</a>
-                  </div>
+                    <a class="glyphicon glyphicon-arrow-left" ng-href="/#!/users"></a>
+                    &nbsp;
+                    <a class="glyphicon glyphicon-edit" ng-href="/#!/users/{{user._id}}/edit"></a>
+                    &nbsp;
+                    <a class="glyphicon glyphicon-trash" ng-href="/#!/" ng-click="delete();"></a>
                </div>
             </div>
          </div>

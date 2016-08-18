@@ -169,7 +169,6 @@ exports.delete = function (req, res) {
 	})
 };
 
-//not yet implemented
 exports.requiresLogin = function(req, res, next) {
   if (!req.isAuthenticated()) {
     return res.status(401).send({
@@ -178,4 +177,13 @@ exports.requiresLogin = function(req, res, next) {
   }
 
   next();
+};
+
+exports.hasAuthorization = function(req, res, next) {
+    if (req.article.creator.id !== req.user.id) {
+        return res.status(403).send({
+            message: 'User is not authorized'
+        });
+    }
+    next();
 };

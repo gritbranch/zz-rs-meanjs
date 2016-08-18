@@ -1,0 +1,35 @@
+<div ng-controller=ArticlesController ng-init="find()">
+   <div id="fh5co-content">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+               <div class="row">
+                  <div class="col-md-3">
+                     <h3>{{moduleName}}</h3>
+                     <p class="">This is where we create/view/edit/delete articles. Click <a ng-href="/#!/">here</a> to go back to the main page.</p> 
+                  </div>
+                  <div class="col-md-9">
+                    <h3>{{routeTitle_list}}</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="article in articles">
+                            <a ng-href="#!/articles/{{article._id}}" ng-bind="article.title"></a>
+                            <br>
+                            <small ng-bind="article.created | date:'medium'"></small>
+                            <small>/</small>
+                            <small ng-bind="article.creator.fullName"></small>
+                            <p ng-bind="article.content"></p>
+                        </li>
+                    </ul>
+                    <a class="glyphicon glyphicon-plus" ng-href="/#!/articles/create"></a>
+                    <!--
+                    <div ng-hide="!articles || articles.length">
+                        No articles yet, why don't you <a ng-href="/#!/articles/create">create one</a>?
+                    </div>
+                    -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
