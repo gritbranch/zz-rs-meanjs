@@ -7,9 +7,11 @@ angular.module('users').controller('UserController', ['$scope', '$routeParams', 
     $scope.namesSample = NameFactory;
 
     //titles
-    $scope.routeTitle_1 = "Users View";
-    $scope.routeTitle_2 = "Edit Users";
-    $scope.routeTitle_3 = "Search Users";
+    $scope.moduleName = "Users Module"
+    $scope.routeTitle_main = "Users Main";
+    $scope.routeTitle_list = "Users List";
+    $scope.routeTitle_view = "Users View";
+    $scope.routeTitle_edit = "Users Edit";
 
     //crud
     $scope.find = function() {
@@ -49,7 +51,7 @@ angular.module('users').controller('UserController', ['$scope', '$routeParams', 
         console.log("location from delete " + $location.path('users'));
         $scope.user.$remove(function () {
           console.log("from inside remove ");
-          //$location.path('users');
+          $location.path('users');
         });
       }
     };

@@ -1,0 +1,53 @@
+<div ng-controller=UserController data-ng-init="findOne()">
+   <div id="fh5co-content">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+               <div class="row">
+                  <div class="col-md-3">
+                     <h3>{{moduleName}}</h3>
+                     <p class="">This is where we view/edit/delete user accounts. Click <a ng-href="/#!/">here</a> to go back to the main page.</p>    
+                  </div>
+                  <div class="col-md-9">
+                     <h3>{{routeTitle_edit}}</h3>
+                     <form data-ng-submit="update()" novalidate>
+                        <div>
+                           <label for="firstName">First Name</label>
+                           <input class="form-control" type="text" ng-model="user.firstName" id="firstName" placeholder="First Name" required>
+                        </div>
+                        <div>
+                           <label for="lastName">Last Name</label>
+                           <input class="form-control" type="text" ng-model="user.lastName" id="lastName" placeholder="Last Name" required>
+                        </div>
+                        <div>
+                           <label for="username">Username</label>
+                           <input readonly class="form-control" type="text" ng-model="user.username" id="username" placeholder="Username" required>
+                        </div>   
+                        <div>
+                           <label for="email">E-Mail</label>
+                           <input readonly class="form-control" type="text" ng-model="user.email" id="email" placeholder="E-Mail" required>
+                        </div>  
+                        <div>
+                           <label for="provider">Provider</label>
+                           <input readonly class="form-control" type="text" ng-model="user.provider" id="provider" placeholder="Provider" required>
+                        </div>      
+                        <div>
+                           <label for="created">Date Created</label>
+                           <input readonly class="form-control" type="text" ng-model="user.created" id="created" placeholder="Date Created" required>
+                        </div>                                                                                           
+                        
+                        <br>
+                        <input class="btn btn-success" type="submit" value="Update">
+                        <a class="btn btn-warning" href="#!/users">Back</a>
+                     
+                        <div data-ng-show="error">
+                           <strong data-ng-bind="error"></strong>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
