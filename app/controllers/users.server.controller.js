@@ -144,6 +144,7 @@ exports.update = function(req, res) {
   var user = req.user;
 
   user.firstName = req.body.firstName;
+  user.lastName = req.body.lastName;
 
   user.save(function(err) {
     if (err) {
@@ -155,21 +156,7 @@ exports.update = function(req, res) {
     }
   });
 };
-/*
-exports.delete = function(req, res) {
-  var user = req.user;
 
-  user.remove(function(err) {
-    if (err) {
-      return res.status(400).send({
-        message: getErrorMessage(err)
-      });
-    } else {
-      res.json(user);
-    }
-  });
-};
-*/
 exports.delete = function (req, res) {
 	req.user.remove(function (err) {
 		if (err) {
@@ -182,7 +169,6 @@ exports.delete = function (req, res) {
 	})
 };
 
-//not yet implemented
 exports.requiresLogin = function(req, res, next) {
   if (!req.isAuthenticated()) {
     return res.status(401).send({
@@ -191,4 +177,13 @@ exports.requiresLogin = function(req, res, next) {
   }
 
   next();
+};
+
+exports.hasAuthorization = function(req, res, next) {
+    if (req.article.creator.id !== req.user.id) {
+        return res.status(403).send({
+            message: 'User is not authorized'
+        });
+    }
+    next();
 };

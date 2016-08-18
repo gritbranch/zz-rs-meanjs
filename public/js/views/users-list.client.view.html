@@ -1,29 +1,32 @@
 <div ng-controller=UserController ng-init="find()">
-    <h1>Users</h1>
-      <ul>
-          <li><a href="#!/">Go Back</a></li>
-    <li data-ng-repeat="user in users">
-      <a data-ng-href="#!/users/{{user._id}}" data-ng-bind="user.username"></a>
-    </li>
-  </ul>
-
    <div id="fh5co-content">
       <div class="container">
          <div class="row">
             <div class="col-md-10 col-md-offset-1">
                <div class="row">
                   <div class="col-md-3">
-                     <h3>Users Menu</h3>
-                     <ul class="fh5co-list-check">
-                        <li class="active"><a href="#!">Users View</a></li>
-                        <li><a href="#!/view">Search Users</a></li>
-                        <li><a href="#!/edit">Edit User</a></li>
-                     </ul>
+                     <h3>{{moduleName}}</h3>
+                     <p class="">This is where we view/edit/delete user accounts. Click <a ng-href="/#!/">here</a> to go back to the main page.</p> 
                   </div>
                   <div class="col-md-9">
-                     <h3>{{routeTitle_3}}</h3>
-                     <p class="">{{authentication}}</p>
-                     <p class="">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                     <h3>{{routeTitle_list}}</h3>
+                     <table class="table">
+                     <tr>
+                         <th>First Name</th> 
+                         <th>Last Name</th>
+                         <th>Username</th>
+                         <th>Provider</th>
+                         <th colspan="3">Action</th>
+                     </tr>
+                     <tr ng-repeat="user in users">
+                         <td ng-bind="user.firstName"></td>
+                         <td ng-bind="user.lastName"></td>
+                         <td ng-bind="user.username"></td>
+                         <td ng-bind="user.provider"></td>
+                         <td><a ng-href="/#!/users/{{user._id}}" class="glyphicon glyphicon-eye-open"></a></td>                         
+                         <td><a ng-href="/#!/users/{{user._id}}/edit" class="glyphicon glyphicon-edit"></a></td>
+                     </tr>
+                     </table>
                   </div>
                </div>
             </div>

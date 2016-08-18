@@ -7,21 +7,21 @@ angular.module('users').controller('UserController', ['$scope', '$routeParams', 
     $scope.namesSample = NameFactory;
 
     //titles
-    $scope.routeTitle_1 = "Users View";
-    $scope.routeTitle_2 = "Edit Users";
-    $scope.routeTitle_3 = "Search Users";
+    $scope.moduleName = "Users Module"
+    $scope.routeTitle_main = "Users Main";
+    $scope.routeTitle_list = "Users List";
+    $scope.routeTitle_view = "Users View";
+    $scope.routeTitle_edit = "Users Edit";
 
     //crud
     $scope.find = function() {
       $scope.users = Users.query();
-      console.log($scope.users);
     };
 
     $scope.findOne = function() {
       $scope.user = Users.get({
         userId: $routeParams.userId
       });
-      console.log("from find one " + $scope.user);
     };
 
     $scope.update = function() {
@@ -32,26 +32,12 @@ angular.module('users').controller('UserController', ['$scope', '$routeParams', 
       });
     };
 
-    $scope.delete = function (user) {
-      //This method uses a DELETE HTTP method and expects a JSON object response
-      if (user) {
-        //Delete from list view
-        user.$remove(function () {
-          for (var i in $scope.users) {
-            if ($scope.users[i] === user) {
-              $scope.users.splice(i, 1);
-            }
-          }
-        });
-      } else {
-        //Delete from view
-        console.log("scope from delete " + $scope.user);
-        console.log("location from delete " + $location.path('users'));
-        $scope.user.$remove(function () {
-          console.log("from inside remove ");
-          //$location.path('users');
-        });
-      }
+    $scope.delete = function() {
+      console.log("scope from delete " + $scope.user);
+      $scope.user.$remove(function () {
+        console.log("from inside remove ");
+        $location.path('users');
+      });
     };
 
   }

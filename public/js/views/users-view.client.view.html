@@ -1,0 +1,41 @@
+<div ng-controller=UserController data-ng-init="findOne()">
+   <div id="fh5co-content">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+               <div class="row">
+                  <div class="col-md-3">
+                     <h3>{{moduleName}}</h3>
+                     <p class="">This is where we view/edit/delete user accounts. Click <a ng-href="/#!/">here</a> to go back to the main page.</p> 
+                  </div>
+                  <div class="col-md-9">
+                    <h3>{{routeTitle_view}}</h3>
+                    <table class="table">
+                    <tr>
+                        <th>Last Name</th> 
+                        <th>First Name</th>
+                        <th>Username</th>
+                        <th>E-mail</th>
+                        <th>Provider</th>
+                        <th>Created</th>
+                    </tr>
+                    <tr>
+                     <td ng-bind="user.firstName"></td>
+                     <td ng-bind="user.lastName"></td>
+                     <td ng-bind="user.username"></td>
+                     <td ng-bind="user.email"></tdp>
+                     <td ng-bind="user.provider"></td>
+                     <td ng-bind="user.created"></td>
+                    </tr>
+                    </table>
+                    <a class="glyphicon glyphicon-arrow-left" ng-href="/#!/users"></a>
+                    &nbsp;
+                    <a class="glyphicon glyphicon-edit" ng-href="/#!/users/{{user._id}}/edit"></a>
+                    &nbsp;
+                    <a class="glyphicon glyphicon-trash" ng-href="/#!/" ng-click="delete();"></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

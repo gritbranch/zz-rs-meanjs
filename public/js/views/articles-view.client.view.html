@@ -1,0 +1,33 @@
+<div ng-controller=ArticlesController data-ng-init="findOne()">
+   <div id="fh5co-content">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+               <div class="row">
+                  <div class="col-md-3">
+                     <h3>{{moduleName}}</h3>
+                     <p class="">This is where we create/view/edit/delete articles. Click <a ng-href="/#!/">here</a> to go back to the main page.</p>  
+                  </div>
+                  <div class="col-md-9">
+                    <h3 ng-bind="article.title"></h3>
+                    <small>
+                        <em>Posted on</em>
+                        <em ng-bind="article.created | date:'mediumDate'"></em>
+                        <em>by</em>
+                        <em ng-bind="article.creator.fullName"></em>
+                    </small>
+                    <p ng-bind="article.content"></p>
+                    <div ng-show="authentication.user._id == article.creator._id">
+                        <a class="glyphicon glyphicon-arrow-left" ng-href="/#!/articles"></a>
+                        &nbsp;
+                        <a class="glyphicon glyphicon-edit" ng-href="/#!/articles/{{article._id}}/edit"></a>
+                        &nbsp;
+                        <a class="glyphicon glyphicon-trash" ng-href="/#!/" ng-click="delete();"></a>
+                    </div>                    
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

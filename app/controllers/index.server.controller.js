@@ -1,7 +1,7 @@
 exports.render = function(req, res) {
   res.render('index', {
-    title: 'Nerds Produce Money',
-    fullName: req.user ? req.user.fullName : '',
+    title: 'NPM',
+    fullName: req.user ? req.user.fullName : '',  //For EJS use
     user: JSON.stringify(req.user)                //For AngularJS Authentication
   });
 };
