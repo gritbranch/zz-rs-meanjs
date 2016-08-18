@@ -19,7 +19,7 @@ angular.module('users').factory('NameFactory', [
 
 angular.module('users').factory('Users', ['$resource', function($resource) {
   return $resource('api/users/:userId', {
-    userId: '@_id'
+    articleId: '@_id'
   }, {
     update: {
       method: 'PUT'
